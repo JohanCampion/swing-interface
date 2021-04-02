@@ -34,19 +34,34 @@ public class MainFrame extends JFrame {
 		JPanel listcontainer = new JPanel();
 		JPanel centerPanel = new JPanel();
 		
-		centerPanel.add(new JLabel("Question 1"));
-		centerPanel.add(new JLabel("Question 2"));
-		centerPanel.add(new JLabel("Question 3"));
-		centerPanel.add(new JLabel("Question 4"));
-		centerPanel.add(new JLabel("Question 5"));
-		centerPanel.add(new JLabel("Question 6"));
-		centerPanel.add(new JLabel("Question 7"));
-		centerPanel.add(new JLabel("Question 8"));
-		centerPanel.add(new JLabel("Question 9"));
+		centerPanel.add(getQuestion("Question 1"));
+		centerPanel.add(getQuestion("Question 2"));
+		centerPanel.add(getQuestion("Question 3"));
+		centerPanel.add(getQuestion("Question 4"));
+		centerPanel.add(getQuestion("Question 5"));
+		centerPanel.add(getQuestion("Question 6"));
+		centerPanel.add(getQuestion("Question 7"));
+		centerPanel.add(getQuestion("Question 8"));
+		centerPanel.add(getQuestion("Question 9"));
 		
 		listcontainer.add(centerPanel);
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		return listcontainer;
+	}
+	
+	public JPanel getQuestion (String questionNumero) {
+		JPanel questionPanel = new JPanel();
+		questionPanel.setLayout(new FlowLayout());
+		
+		JLabel questionLabel = new JLabel();
+		questionLabel.setText(questionNumero);
+		
+		JButton selectButton = new JButton("Voir");
+		
+		questionPanel.add(questionLabel);
+		questionPanel.add(selectButton);
+		
+		return questionPanel;
 	}
 	
 	public JPanel getHeader() {

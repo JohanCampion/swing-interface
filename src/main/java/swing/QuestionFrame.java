@@ -5,8 +5,14 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -76,9 +82,17 @@ public class QuestionFrame extends JFrame {
 		groupPanel.setLayout(new BoxLayout(groupPanel, BoxLayout.Y_AXIS));
 		
 		groupPanel.add(getQuestionLabel("Question 1 : Une classe peut elle avoir 2 constructeurs ?"));
+		groupPanel.add(getQuestionImage());
 		groupPanel.add(getInputLabel());
 		groupPanel.add(getValidateButton());
 		return groupPanel;
+	}
+	
+	public JLabel getQuestionImage() { 
+		
+		JLabel label = new JLabel(new ImageIcon(getClass().getResource("/image.png")));
+		
+		return label;
 	}
 	
 	

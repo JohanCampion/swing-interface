@@ -2,9 +2,13 @@ package swing;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.time.Year;
 
 import javax.swing.BoxLayout;
@@ -14,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class MainFrame extends JFrame {
 
@@ -68,7 +73,10 @@ public class MainFrame extends JFrame {
 			
 		JPanel ConnectionPannel = new JPanel();
 		JButton connectionButton = new JButton("Se connecter");
+		JButton quitButton = new JButton("Quitter");
+		quitButton.addActionListener(this.registerQuitAction());
 		ConnectionPannel.add(connectionButton);
+		ConnectionPannel.add(quitButton);
 		ConnectionPannel.setLayout(new FlowLayout(FlowLayout.TRAILING));
 		
 		JPanel titleContainer = new JPanel();
@@ -84,6 +92,21 @@ public class MainFrame extends JFrame {
 				
 		return headerPannel;
 	}
+	
+	 public ActionListener registerQuitAction() {
+	        ActionListener action = new ActionListener() {
+
+	            public void actionPerformed(ActionEvent e) {
+	                Component src = (Component) e.getSource();
+	                // Returns the root component for the current component tree
+	                JFrame frame = (JFrame) SwingUtilities.getRoot(src);
+
+	                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+	            }
+	        };
+
+	        return action;
+	    }
 	
 
 

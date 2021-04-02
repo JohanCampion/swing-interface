@@ -13,6 +13,10 @@ public class launcher {
 		
 		JFrame test2 = new ConnectionFrame();
 		test2.setSize(200,140);
+		
+		JFrame test3 = new QuestionFrame();
+		test3.setSize(400,200);
+		test3.setVisible(true);
 
 	}
 

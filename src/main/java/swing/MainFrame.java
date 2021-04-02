@@ -25,7 +25,7 @@ public class MainFrame extends JFrame {
 
 		Container panel = getContentPane();
 		panel.setLayout(new BorderLayout());
-		panel.add(getTitlePanel(), BorderLayout.NORTH);
+		panel.add(getHeader(), BorderLayout.NORTH);
 		panel.add(getList(), BorderLayout.CENTER);
 
 	}
@@ -49,16 +49,27 @@ public class MainFrame extends JFrame {
 		return listcontainer;
 	}
 	
-	public JPanel getTitlePanel() {
-		JPanel titleContainer = new JPanel();
+	public JPanel getHeader() {
+			
+		JPanel ConnectionPannel = new JPanel();
+		JButton connectionButton = new JButton("Se connecter");
+		ConnectionPannel.add(connectionButton);
+		ConnectionPannel.setLayout(new FlowLayout(FlowLayout.TRAILING));
 		
+		JPanel titleContainer = new JPanel();
 		label = new JLabel();
 		label.setText("Questions");
 		label.setFont(label.getFont().deriveFont(30.0f));
-		label.setBackground(Color.YELLOW);
-		
-		titleContainer.add(label, BorderLayout.CENTER);	
-		return titleContainer;
+		titleContainer.add(label);
+
+		JPanel headerPannel = new JPanel();
+		headerPannel.setLayout(new BoxLayout(headerPannel, BoxLayout.Y_AXIS));
+		headerPannel.add(ConnectionPannel);
+		headerPannel.add(titleContainer);
+				
+		return headerPannel;
 	}
+	
+
 
 }
